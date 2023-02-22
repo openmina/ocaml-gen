@@ -116,6 +116,16 @@ impl OCamlDesc for ocaml::Int {
     }
 }
 
+impl OCamlDesc for ocaml::Float {
+    fn ocaml_desc(_env: &Env, _generics: &[&str]) -> String {
+        "float".to_string()
+    }
+
+    fn unique_id() -> u128 {
+        const_random!(u128)
+    }
+}
+
 impl OCamlDesc for String {
     fn ocaml_desc(_env: &Env, _generics: &[&str]) -> String {
         "string".to_string()
